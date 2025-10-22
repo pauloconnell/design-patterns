@@ -1,0 +1,48 @@
+// 1. Optional: Customize your variables first (e.g., brand colors)
+$primary: #007bff; 
+$theme-colors: (
+  "primary": $primary,
+  "danger": #ff4136
+);
+// Change the default border radius
+$border-radius: 0.5rem;
+
+
+@import "bootstrap/scss/bootstrap";
+
+
+// could tree shake bootstrap, but it's pretty small when minified
+
+// // Import the necessary files to make sure the variables are correctly set
+// @import "bootstrap/scss/functions"; 
+// @import "bootstrap/scss/variables";
+// // Add maps to correctly register your custom theme-colors
+// @import "bootstrap/scss/maps";
+// @import "bootstrap/scss/mixins";      // Important for components and utilities
+
+
+// // //tree shake the massive utilities 
+// // $utilities: (
+// //   "spacing": map-get($utilities, "spacing"), // Keep spacing utility config
+// //   // Add other utilities here if you want them, e.g.:
+// //   // "color": map-get($utilities, "color"),
+// // );
+
+// // 3. Components (Only import what your app uses) aka: Manual tree-shaking
+// @import "bootstrap/scss/root";       // Required for CSS variables
+// @import "bootstrap/scss/reboot";     // Required for normalization
+// @import "bootstrap/scss/type";       // For typography
+// @import "bootstrap/scss/images";     // Basic image styling (e.g., .img-fluid)
+
+// @import "bootstrap/scss/buttons"; 
+// @import "bootstrap/scss/card";
+// //@import "bootstrap/scss/modal";
+// @import "bootstrap/scss/nav";
+// @import "bootstrap/scss/navbar";
+// //  @import "bootstrap/scss/forms";
+
+
+// @import "bootstrap/scss/utilities"; 
+// // Only import the utilities you need:
+// // 
+// // @import "bootstrap/scss/utilities/spacing"; // Use only if you need m-*, p-* classes

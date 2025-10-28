@@ -22,12 +22,12 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
 
    return (
       <div className={className} style={style}>
-         <h2>Algorithm</h2>
+       
          <h1>Depth First Search</h1>
          <h2>DFS</h2>
          Depth First means to drill down as deep as possible, then backtrack
          <br />
-         <button
+         <button className='btn btn-primary'
             onClick={(e) => {
                handleClick();
                console.log('clicked', e.target);
@@ -39,21 +39,51 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
          {/* {showThis.toString()} // If you wanted to see the boolean as text */}
          {showThis ? (
             <div id="dfs">
-               <center>
+               
+
                   <h3>Depth First Search:</h3>
                   Associated with using a Stack...but we will use recursion instead
                   <h4>Used for Binary Tree traversals</h4>
-               </center>
+               
+              <hr />
                <div className="my-3">
+                  <h5 className="bold">
+                     In-order -
+                     <br />
+                  </h5>
+                   <b className="explaination">If performed on a Binary Search Tree (BST), the result is the node values retrieved in ascending (sorted) order.</b>
+                  1.traverse left
+                  <br />
+                  2.Visit node <br />
+                  3.traverse right <br />
+                 
+                  Using recursion:
+                  <br />
+                  <code className="text-start d-block">
+                     {`let preOrder=function(node) {`} <br />
+                     if node==null then return
+                     <div className="ms-2">
+                        preOrder(node.left) //recursion
+                        
+                        visit(node)-ie answer.push(node.val) <br />
+                        preOrder(node.right) // magic
+                     </div>
+                     
+                  </code>
+                    time complexity O(n)
+               </div>
+<hr />
+ <div className="my-3">
                   <h5 className="bold">
                      Pre-order
                      <br />
                   </h5>
+                  <b className="explaination">Used to copy existing tree - get root/parents then children</b>
                   1.Visit node <br />
                   2.traverse left
                   <br />
                   3.traverse right <br />
-                  Use recursion to solve these problems. ie traverse = recursive call
+                  
                   <br />
                   <code className="text-start d-block">
                      {`let preOrder=function(node) {`} <br />
@@ -70,40 +100,17 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
              
                   time complexity O(n)
                </div>
-               <div className="my-3">
-                  <h5 className="bold">
-                     In-order -
-                     <br />
-                  </h5>
-                  1.traverse left
-                  <br />
-                  2.Visit node <br />
-                  3.traverse right <br />
-                  Using recursion:
-                  <br />
-                  <code className="text-start d-block">
-                     {`let preOrder=function(node) {`} <br />
-                     if node==null then return
-                     <div className="ms-2">
-                        preOrder(node.left) //recursion
-                        
-                        visit(node)-ie answer.push(node.val) <br />
-                        preOrder(node.right) // magic
-                     </div>
-                     
-                  </code>
-                    time complexity O(n)
-               </div>
-
+               <hr />
                <div className="my-3">
                   <h5 className="bold">
                      Post-order
                      <br />
                   </h5>
+                   <b className="explaination"> Used to delete a tree - must delete children before parents</b>
                   1.traverse left <br />
                   2.traverse right <br />
                   3.Visit node <br />
-                  Using recursion:
+              
                   <br />
                   <code className="text-start d-block">
                      {`let postOrder=function(node) {`}
@@ -115,7 +122,7 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
                         <br />
                         postOrder(node.right) // magic
                         <br />
-                        answer.push(node.val) <br />
+                        visit(node) //-ie answer.push(node.val) <br />
                      </div>
                   </code>
                   

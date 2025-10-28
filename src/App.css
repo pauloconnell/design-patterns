@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.explaination {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: aliceblue;
+  border-radius: 5px;
+  border: 2px solid black;
+  max-width: 400px;
+}
+
+code {
+  background-color: beige;
+}

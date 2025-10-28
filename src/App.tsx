@@ -30,8 +30,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-
-      <DepthFirstSearch className="my-5 mx-1 border rounded" />
+      <h2>Algorithm</h2>
+      
+      <DepthFirstSearch className="my-5 mx-1 p-1 border rounded" />
 
 
     </>

@@ -1,0 +1,97 @@
+import React, { useState } from 'react';
+import type { CSSProperties } from 'react';
+
+// Define the type for the props
+type SingletonExampleProps = { className?: string; style?: CSSProperties };
+
+// A simple Singleton class in TypeScript
+class ConfigManager {
+   private static instance: ConfigManager;
+   public readonly config: Record<string, string>;
+
+   private constructor() {
+      this.config = {
+         apiUrl: 'https://api.example.com',
+         theme: 'dark',
+      };
+   }
+
+   public static getInstance(): ConfigManager {
+      if (!ConfigManager.instance) {
+         ConfigManager.instance = new ConfigManager();
+      }
+      return ConfigManager.instance;
+   }
+}
+
+const SingletonExample: React.FC<SingletonExampleProps> = ({ className, style }) => {
+   const [showThis, setShowThis] = useState(false);
+
+   const handleClick = (): void => {
+      setShowThis((prevShowThis) => {
+         console.log('handled ', !prevShowThis);
+         return !prevShowThis;
+      });
+   };
+
+   return (
+      <section className={className} style={style}>
+         <h1>Singleton Pattern</h1>
+         <h2>Global Instance Access</h2>
+         Ensures a class has only one instance and provides a global point of access to it.
+         <br />
+         <button
+            className="btn btn-primary"
+            onClick={(e) => {
+               handleClick();
+               console.log('clicked', e.target);
+            }}
+         >
+            Singleton Details:
+         </button>
+         {showThis ? (
+            <div id="singleton">
+               <h3>Singleton Design Pattern:</h3>
+               Used when exactly one object is needed to coordinate actions across the system.
+               <h4>Common Use Cases:</h4>
+               <ul>
+                  <li>Global configuration manager</li>
+                  <li>Logging service</li>
+                  <li>Database connection pool</li>
+               </ul>
+               <hr />
+               <div className="my-3">
+                  <h5 className="bold">Example: ConfigManager Singleton</h5>
+                  <b className="explanation">
+                     The class ensures only one instance is created and reused throughout the app.
+                  </b>
+                  <code className="text-start d-block">
+                     {`class ConfigManager {
+  private static instance: ConfigManager;
+  private constructor() { /* init */ }
+  public static getInstance(): ConfigManager {
+    if (!ConfigManager.instance) {
+      ConfigManager.instance = new ConfigManager();
+    }
+    return ConfigManager.instance;
+  }
+}`}
+                  </code>
+                  <br />
+                  <b>Usage:</b>
+                  <code className="text-start d-block">
+                     {`const config = ConfigManager.getInstance();`}
+                  </code>
+                  <br />
+                  time complexity: O(1) for access
+               </div>
+               <br />
+            </div>
+         ) : (
+            <div className="my-2">Click button to show details</div>
+         )}
+      </section>
+   );
+};
+
+export default SingletonExample;

@@ -59,12 +59,12 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
                   3.traverse right <br />
                   <br />
                   <code className="text-start d-block">
-                     {`let preOrder=function(node) {`} <br />
-                     if node==null then return
+                     {`let inOrder=function(node) {`} <br />
                      <div className="ms-2">
-                        preOrder(node.left) //recursion visit(node)-ie
-                        answer.push(node.val) <br />
-                        preOrder(node.right) // magic
+                        {`if (node==null) return`} <br />
+                        inOrder(node.left) <br />
+                        visit(node)-ie answer.push(node.val) <br />
+                        inOrder(node.right) // magic
                      </div>
                   </code>
                   time complexity O(n)
@@ -85,9 +85,8 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
                   <br />
                   <code className="text-start d-block">
                      {`let preOrder=function(node) {`} <br />
-                     if node==null return
-                     <br />
                      <div className="ms-2">
+                        {`if (node==null) return`} <br />
                         visit(node)-ie answer.push(node.val) <br />
                         preOrder(node.left) //recursion
                         <br />
@@ -113,9 +112,8 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
                   <code className="text-start d-block">
                      {`let postOrder=function(node) {`}
                      <br />
-                     if (node==null) return;
-                     <br />
                      <div className="ms-2">
+                        {`if (node==null) return`} <br />
                         postOrder(node.left) //recursion
                         <br />
                         postOrder(node.right) // magic

@@ -88,8 +88,9 @@ const FacadeExample: React.FC<FacadeExampleProps> = ({ className, style }) => {
                   <b className="explanation">
                      Combines logging, authentication, and data fetching into one method.
                   </b>
-                  <code className="text-start d-block">
-                     {`class AppFacade {
+                  <pre className="text-start d-block">
+                     <code className="text-start d-block">
+                        {`class AppFacade {
   private logger = new Logger();
   private auth = new AuthService();
   private data = new DataFetcher();
@@ -106,12 +107,11 @@ const FacadeExample: React.FC<FacadeExampleProps> = ({ className, style }) => {
     }
   }
 }`}
-                  </code>
+                     </code>
+                  </pre>
                   <br />
                   <b>Output:</b>
-                  <code className="text-start d-block">
-                     {JSON.stringify(result)}
-                  </code>
+                  <code className="text-start d-block">{JSON.stringify(result)}</code>
                   <br />
                   time complexity: O(1) per subsystem call
                </div>

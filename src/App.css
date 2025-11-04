@@ -1,6 +1,10 @@
 code {
   background-color: beige;
 }
+ 
+h2 {
+  text-decoration: underline;
+}
 
 section {
     padding : 20px;

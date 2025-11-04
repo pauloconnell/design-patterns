@@ -24,7 +24,7 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
    return (
       <section className={className} style={style}>
          <h1>Depth First Search</h1>
-         <h2>DFS</h2>
+         <h2>DFS (Stack - FILO)</h2>
          Depth First means to drill down as deep as possible, then backtrack
          <br />
          <button

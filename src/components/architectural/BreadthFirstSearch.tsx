@@ -19,7 +19,7 @@ const BreadthFirstSearch: React.FC<BreadthFirstSearchProps> = ({ className, styl
    return (
       <section className={className} style={style}>
          <h1>Breadth First Search</h1>
-         <h2>BFS</h2>
+         <h2>BFS (Queue - FIFO)</h2>
          Breadth First means to explore all neighbors at the current depth before going deeper
          <br />
          <button

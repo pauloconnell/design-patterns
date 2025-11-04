@@ -24,7 +24,7 @@ class ConfigManager {
    }
 }
 
-const SingletonExample: React.FC<SingletonExampleProps> = ({ className, style }) => {
+const SingletonExample = ({ className, style }:SingletonExampleProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {
@@ -35,17 +35,14 @@ const SingletonExample: React.FC<SingletonExampleProps> = ({ className, style })
    };
 
    return (
-      <section className={className} style={style}>
+      <section className={className} style={style ?? {}} >
          <h1>Singleton Pattern</h1>
          <h2>Global Instance Access</h2>
          Ensures a class has only one instance and provides a global point of access to it.
          <br />
          <button
             className="btn btn-primary"
-            onClick={(e) => {
-               handleClick();
-               console.log('clicked', e.target);
-            }}
+            onClick={handleClick}
          >
             Singleton Details:
          </button>
@@ -65,8 +62,9 @@ const SingletonExample: React.FC<SingletonExampleProps> = ({ className, style })
                   <b className="explanation">
                      The class ensures only one instance is created and reused throughout the app.
                   </b>
-                  <code className="text-start d-block">
-                     {`class ConfigManager {
+              <pre className="text-start d-block">
+  <code>
+{`class ConfigManager {
   private static instance: ConfigManager;
   private constructor() { /* init */ }
   public static getInstance(): ConfigManager {
@@ -76,7 +74,9 @@ const SingletonExample: React.FC<SingletonExampleProps> = ({ className, style })
     return ConfigManager.instance;
   }
 }`}
-                  </code>
+  </code>
+</pre>
+
                   <br />
                   <b>Usage:</b>
                   <code className="text-start d-block">

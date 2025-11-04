@@ -77,17 +77,21 @@ const AdapterExample: React.FC<AdapterExampleProps> = ({ className, style }) => 
                <div className="my-3">
                   <h5 className="bold">Example: LegacyUser → ModernUser</h5>
                   <b className="explanation">
-                     Converts legacy API format into the shape expected by modern components.
+                     Converts legacy API format into the shape expected by modern
+                     components.
                   </b>
-                  <code className="text-start d-block">
-                     {`function adaptUser(legacy: LegacyUser): ModernUser {
+                  <pre className="text-start d-block">
+                     <code>
+                        {`function adaptUser(legacy: LegacyUser): ModernUser {
   return {
+    // NOTE: adapt legacy data to modern format
     id: legacy.id,
     name: legacy.full_name,
     active: legacy.is_active === 1,
   };
 }`}
-                  </code>
+                     </code>
+                  </pre>
                   <br />
                   <b>Adapted Output:</b>
                   <code className="text-start d-block">

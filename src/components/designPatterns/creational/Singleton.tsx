@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
-
-// Define the type for the props
-type SingletonExampleProps = { className?: string; style?: CSSProperties };
+import type { CommonProps } from '@types';
 
 // A simple Singleton class in TypeScript
 class ConfigManager {
@@ -24,7 +21,7 @@ class ConfigManager {
    }
 }
 
-const SingletonExample = ({ className, style }:SingletonExampleProps) => {
+const SingletonExample = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {

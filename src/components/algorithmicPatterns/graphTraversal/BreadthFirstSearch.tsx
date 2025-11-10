@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-// Define the type for the props
-type BreadthFirstSearchProps = { className?: string; style?: CSSProperties };
-
-const BreadthFirstSearch: React.FC<BreadthFirstSearchProps> = ({ className, style }) => {
+const BreadthFirstSearch = ({ className, style }: CommonProps) => {
    // Use the useState Hook for state management
    const [showThis, setShowThis] = useState(false);
 
@@ -24,9 +21,9 @@ const BreadthFirstSearch: React.FC<BreadthFirstSearchProps> = ({ className, styl
          <br />
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             BreadthFirstSearch Details:

@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-// Define the type for the props
-type DepthFirstSearchProps = { className?: string; style?: CSSProperties };
-
-const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style }) => {
+const DepthFirstSearch = ({ className, style }: CommonProps) => {
    // Use the useState Hook for state management
    const [showThis, setShowThis] = useState(false);
 
@@ -29,9 +26,9 @@ const DepthFirstSearch: React.FC<DepthFirstSearchProps> = ({ className, style })
          <br />
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             DepthFirstSearch Details:

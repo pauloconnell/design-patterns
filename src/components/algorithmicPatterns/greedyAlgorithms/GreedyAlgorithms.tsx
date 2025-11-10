@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-type GreedyAlgorithmsProps = { className?: string; style?: CSSProperties };
-
-const GreedyAlgorithms: React.FC<GreedyAlgorithmsProps> = ({ className, style }) => {
+const GreedyAlgorithms = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {
@@ -21,9 +19,9 @@ const GreedyAlgorithms: React.FC<GreedyAlgorithmsProps> = ({ className, style })
 
          <button
               className="btn btn-primary d-block my-2 mx-auto"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             GreedyAlgorithms Details:

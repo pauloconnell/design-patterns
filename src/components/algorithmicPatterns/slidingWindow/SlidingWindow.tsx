@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-type SlidingWindowProps = { className?: string; style?: CSSProperties };
-
-const SlidingWindow: React.FC<SlidingWindowProps> = ({ className, style }) => {
+const SlidingWindow = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {
@@ -21,9 +19,9 @@ const SlidingWindow: React.FC<SlidingWindowProps> = ({ className, style }) => {
 
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             SlidingWindow Details:

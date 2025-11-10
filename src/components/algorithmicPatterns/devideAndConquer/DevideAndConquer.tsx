@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-type DivideAndConquerProps = { className?: string; style?: CSSProperties };
-
-const DivideAndConquer: React.FC<DivideAndConquerProps> = ({ className, style }) => {
+const DivideAndConquer = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {
@@ -21,9 +19,9 @@ const DivideAndConquer: React.FC<DivideAndConquerProps> = ({ className, style })
 
          <button
             className="btn btn-primary d-block my-2 mx-auto"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             DivideAndConquer Details:

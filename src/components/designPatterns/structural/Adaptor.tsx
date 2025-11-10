@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
-
-// Define the type for the props
-type AdapterExampleProps = { className?: string; style?: CSSProperties };
+import type { CommonProps } from '@types';
 
 // Legacy API response format
 type LegacyUser = {
@@ -27,7 +24,7 @@ function adaptUser(legacy: LegacyUser): ModernUser {
    };
 }
 
-const AdapterExample: React.FC<AdapterExampleProps> = ({ className, style }) => {
+const AdapterExample = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
    const [user, setUser] = useState<ModernUser | null>(null);
 
@@ -56,9 +53,9 @@ const AdapterExample: React.FC<AdapterExampleProps> = ({ className, style }) => 
          <br />
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             Adapter Details:

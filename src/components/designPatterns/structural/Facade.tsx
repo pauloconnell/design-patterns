@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
-
-// Define the type for the props
-type FacadeExampleProps = { className?: string; style?: CSSProperties };
+import type { CommonProps } from '@types';
 
 // Subsystems: pretend these are complex utilities
 class Logger {
@@ -42,7 +39,7 @@ class AppFacade {
    }
 }
 
-const FacadeExample: React.FC<FacadeExampleProps> = ({ className, style }) => {
+const FacadeExample = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
    const [result, setResult] = useState<string[]>([]);
 
@@ -65,9 +62,9 @@ const FacadeExample: React.FC<FacadeExampleProps> = ({ className, style }) => {
          <br />
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             Facade Details:

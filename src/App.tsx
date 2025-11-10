@@ -66,7 +66,7 @@ function App() {
                <div className="my-3">
                   <DesignPatterns />
                   <button className="d-block m-auto mt-2" onClick={handleClickDesign}>
-                     {showDesign ? 'Close' : 'Open'} Design Patterns
+                     Close Design Patterns
                   </button>
                </div>
             ) : (
@@ -96,7 +96,7 @@ function App() {
                      <AlgorithmicPatterns />
 
                      <button className="d-block m-auto my-2" onClick={handleClickAlgo}>
-                         { showAlgorithmic ? 'Close ' : 'See ' }Algorithmic Patterns
+                       Close Algorithmic Patterns
                      </button>
                   </div>
                ) : (

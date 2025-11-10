@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import type { CommonProps } from '@types';
 
-type DynamicProgrammingProps = { className?: string; style?: CSSProperties };
-
-const DynamicProgramming: React.FC<DynamicProgrammingProps> = ({ className, style }) => {
+const DynamicProgramming = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
 
    const handleClick = (): void => {
@@ -21,9 +19,9 @@ const DynamicProgramming: React.FC<DynamicProgrammingProps> = ({ className, styl
 
          <button
             className="btn btn-primary"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log('clicked', e.currentTarget);
             }}
          >
             DynamicProgramming Details:

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import  React, { useState } from 'react';
+import type { CommonProps } from '@types'
 
-type BacktrackingProps = { className?: string; style?: CSSProperties };
 
-const Backtracking: React.FC<BacktrackingProps> = ({ className, style }) => {
+
+
+const Backtracking = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
+ 
 
    const handleClick = (): void => {
       setShowThis((prevShowThis) => {
@@ -21,9 +23,9 @@ const Backtracking: React.FC<BacktrackingProps> = ({ className, style }) => {
 
          <button
             className="btn btn-primary d-block my-2 mx-auto"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
-               console.log('clicked', e.target);
+               console.log("clicked", e.currentTarget); 
             }}
          >
             Backtracking Details:

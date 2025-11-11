@@ -16,10 +16,7 @@ function AlgorithmicPatterns() {
          <section className="algorithmic-section">
             <h2 className="pattern-title-algorithmic">Algorithmic Patterns</h2>
             
-            <p className="explanation">
-               Algorithmic patterns are <b>reusable problem-solving approaches</b> that help 
-               optimize code efficiency and solve common computational challenges.
-            </p>
+         
             
             <div className="explanation my-4">
                <h3 className="bold">Interview-Ready Use Cases:</h3>

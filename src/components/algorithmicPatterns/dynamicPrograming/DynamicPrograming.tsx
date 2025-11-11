@@ -18,7 +18,7 @@ const DynamicProgramming = ({ className, style }: CommonProps) => {
          Dynamic Programming (DP) solves problems by breaking them into overlapping subproblems and storing results to avoid redundant computation.
 
          <button
-            className="btn btn-primary"
+            className="btn btn-primary d-block mx-auto my-2"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
                console.log('clicked', e.currentTarget);

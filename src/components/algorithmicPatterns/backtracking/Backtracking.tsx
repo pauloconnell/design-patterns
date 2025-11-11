@@ -22,7 +22,7 @@ const Backtracking = ({ className, style }: CommonProps) => {
          Backtracking explores all possible solutions by building candidates incrementally and abandoning paths that fail constraints.
 
          <button
-            className="btn btn-primary d-block my-2 mx-auto"
+            className="btn btn-primary d-block mx-auto my-2"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
                console.log("clicked", e.currentTarget); 

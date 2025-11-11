@@ -18,7 +18,7 @@ const Hashing = ({ className, style }: CommonProps) => {
          Hashing uses key-value pairs for constant-time access, while frequency maps track occurrences of elements for efficient grouping, counting, and filtering.
 
          <button
-            className="btn btn-primary"
+            className="btn btn-primary d-block mx-auto my-2"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
                console.log('clicked', e.currentTarget);

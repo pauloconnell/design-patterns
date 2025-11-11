@@ -18,7 +18,7 @@ const SlidingWindow = ({ className, style }: CommonProps) => {
          The sliding window technique maintains a subset of data that moves across a collection to optimize time-based or range-based operations.
 
          <button
-            className="btn btn-primary"
+            className="btn btn-primary d-block mx-auto my-2"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
                console.log('clicked', e.currentTarget);

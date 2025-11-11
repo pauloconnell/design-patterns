@@ -18,7 +18,7 @@ const TwoPointers = ({ className, style }: CommonProps) => {
          The two pointers technique uses two indices to scan or compare elements in a collection efficiently, often from opposite ends or staggered positions.
 
          <button
-            className="btn btn-primary"
+            className="btn btn-primary d-block mx-auto my-2"
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                handleClick();
                console.log('clicked', e.currentTarget);

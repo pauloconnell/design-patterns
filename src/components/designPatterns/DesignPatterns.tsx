@@ -58,7 +58,7 @@ function DesignPatterns() {
                They <b>organize systems into layers, modules, or services </b>to improve
                scalability, maintainability, and separation of concerns.
             </p>
-            <button className="btn btn-architectural text-white d-block m-auto mt-2" onClick={handleClickArchitect}>
+            <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickArchitect}>
                {showArchitectural ? 'Close ' : 'See '} Architectural Patterns
             </button>
             {showArchitectural ? (
@@ -67,36 +67,40 @@ function DesignPatterns() {
                   <div className="explanation">
                      <p>
                         <b>Component-Based:</b> UI built from reusable, encapsulated
-                        components. Core to React/Vue and scalable frontend architecture.
+                        components. Core to React/Vue and scalable frontend architecture. <em>(FE: 10/10, FS: 9/10)</em>
                      </p>
                      <p>
                         <b>Client-Server:</b> Clients request services from centralized
-                        servers. Fundamental to web and API-based systems.
+                        servers. Fundamental to web and API-based systems. <em>(FE: 7/10, FS: 10/10)</em>
                      </p>
                      <p>
                         <b>Microservices:</b> App split into independent services with
-                        APIs. Enables scalable, modular system design.
+                        APIs. Enables scalable, modular system design. <em>(FE: 5/10, FS: 10/10)</em>
                      </p>
                      <p>
                         <b>Event-Driven:</b> Components communicate via events and
-                        listeners. Ideal for async workflows and reactive UIs.
+                        listeners. Ideal for async workflows and reactive UIs. <em>(FE: 9/10, FS: 9/10)</em>
                      </p>
                      <p>
                         <b>MVC (Model-View-Controller):</b> Separates data, UI, and logic.
-                        Useful for organizing full-stack applications.
+                        Useful for organizing full-stack applications. <em>(FE: 8/10, FS: 9/10)</em>
                      </p>
                      <p>
                         <b>MVVM (Model-View-ViewModel):</b> ViewModel binds data to View
                         for reactive updates. Mirrors Vue’s reactive model.
                      </p>
                      <p>
+                        <b>MVVM (Model-View-ViewModel):</b> ViewModel binds data to View
+                        for reactive updates. Mirrors Vue's reactive model. <em>(FE: 9/10, FS: 7/10)</em>
+                     </p>
+                     <p>
                         <b>Layered Architecture:</b> Code organized into layers (UI,
-                        business, data). Helps structure backend-heavy systems.
+                        business, data). Helps structure backend-heavy systems. <em>(FE: 6/10, FS: 9/10)</em>
                      </p>
                      <p>
                         <b>Hexagonal (Ports & Adapters):</b> Decouples core logic from
                         external systems. Advanced pattern for clean architecture and
-                        testability.
+                        testability. <em>(FE: 4/10, FS: 8/10)</em>
                      </p>
                   </div>
                </div>
@@ -115,7 +119,17 @@ function DesignPatterns() {
                   and make integration easier</b> by defining clear relationships between
                   parts of an application.
                </p>
-               <button className="btn btn-structural text-white d-block m-auto mt-2" onClick={handleClickStructural}>
+               
+               <div className="explanation my-4">
+                  <h4 className="bold">Common Use Cases:</h4>
+                  <p><b>Adapter:</b> API integration, legacy code, third-party libraries <em>(FE: 8/10, FS: 9/10)</em></p>
+                  <p><b>Facade:</b> Complex API simplification, service orchestration <em>(FE: 7/10, FS: 9/10)</em></p>
+                  <p><b>Decorator:</b> Component enhancement, middleware, feature flags <em>(FE: 9/10, FS: 8/10)</em></p>
+                  <p><b>Composite:</b> UI component trees, file systems, nested structures <em>(FE: 10/10, FS: 7/10)</em></p>
+                  <p><b>Proxy:</b> Lazy loading, caching, access control, virtual objects <em>(FE: 6/10, FS: 8/10)</em></p>
+                  <p><b>Flyweight:</b> Memory optimization, shared resources, large datasets <em>(FE: 4/10, FS: 6/10)</em></p>
+               </div>
+               <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickStructural}>
                   {showStructural ? 'Close ' : 'See '} Structural Patterns
                </button>
                {showStructural ? (
@@ -149,7 +163,7 @@ function DesignPatterns() {
                      <Flyweight className="pattern-card my-5 mx-1 p-3" />
 
                      <button
-                        className="d-block m-auto my-2"
+                        className="btn btn-secondary d-block m-auto my-2"
                         onClick={handleClickStructural}
                      >
                         Close Structural Patterns
@@ -175,8 +189,15 @@ function DesignPatterns() {
                   logic, especially when it involves complex setup, multiple
                   configurations, or runtime decisions.
                </p>
+               
+               <div className="explanation my-4">
+                  <h4 className="bold">Common Use Cases:</h4>
+                  <p><b>Singleton:</b> Global state, config managers, database connections <em>(FE: 7/10, FS: 8/10)</em></p>
+                  <p><b>Builder:</b> Complex object construction, form builders, query builders <em>(FE: 8/10, FS: 9/10)</em></p>
+                  <p><b>Prototype:</b> Object cloning, templates, performance optimization <em>(FE: 5/10, FS: 6/10)</em></p>
+               </div>
 
-               <button className="btn btn-creational text-white d-block m-auto mt-2" onClick={handleClickCreational}>
+               <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickCreational}>
                   {showCreational ? 'Close ' : 'Show '} Creational Patterns
                </button>
 
@@ -200,7 +221,15 @@ function DesignPatterns() {
                They help manage control flow, encapsulate behavior, and promote
                flexibility in system design and user interactions.
             </p>
-            <button className="btn btn-behavioral text-white d-block m-auto mt-2" onClick={handleClickBehavioral}>
+            
+            <div className="explanation my-4">
+               <h4 className="bold">Common Use Cases:</h4>
+               <p><b>Observer:</b> Event systems, state management, reactive programming <em>(FE: 10/10, FS: 9/10)</em></p>
+               <p><b>Strategy:</b> Algorithm selection, payment methods, sorting options <em>(FE: 8/10, FS: 8/10)</em></p>
+               <p><b>Command:</b> Undo/redo, action queues, macro recording <em>(FE: 7/10, FS: 7/10)</em></p>
+               <p><b>State:</b> UI state machines, workflow management, game states <em>(FE: 9/10, FS: 7/10)</em></p>
+            </div>
+            <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickBehavioral}>
                {showBehavioral ? 'Close ' : 'See '} Behavioral Patterns
             </button>
             {showBehavioral ? (
@@ -242,7 +271,7 @@ function DesignPatterns() {
                         data traversal.
                      </p>
                   </div>
-                  <button className="d-block m-auto my-2" onClick={handleClickBehavioral}>
+                  <button className="btn btn-secondary d-block m-auto my-2" onClick={handleClickBehavioral}>
                      Close Behavioral Patterns
                   </button>
                </div>

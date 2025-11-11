@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../styles/design-patterns.css';
 import GraphTraversal from './graphTraversal/GraphTraversal';
 import DivideAndConquer from './devideAndConquer/DevideAndConquer';
 import Recursion from './recursion/Recursion';
@@ -10,80 +11,57 @@ import TwoPointers from './twoPointers/TwoPointers';
 import Hashing from './hashing/Hashing';
 
 function AlgorithmicPatterns() {
-   // We would define props types if we wanted to: 1)build props ahead of time,  2) wrap or forward props 3) want type safety in logic or tests
-
-   // do this
-   //const mockProps: DepthFirstSearchProps = {
-   //  className: 'test-class',
-   //  style: { backgroundColor: 'red' },
-   //};
-   // and component would just be
-   // < <BreadthFirstSearch {...mockProps} />
-
-   const [showAlgorithmic, setShowAlgorithmic] = useState(false);
-   //    const [showStructural, setShowStructural] = useState(false);
-   //    const [showCreational, setShowCreational] = useState(false);
-
-   const handleClickAlgorithmic = () => {
-      setShowAlgorithmic((prevShowThis) => {
-         return !prevShowThis;
-      });
-   };
-   //    const handleClickStructural = () => {
-   //       setShowStructural((prevShowThis) => {
-   //          return !prevShowThis;
-   //       });
-   //    };
-   //    const handleClickCreational = () => {
-   //       setShowCreational((prevShowThis) => {
-   //          return !prevShowThis;
-   //       });
-   //    };
-
    return (
       <>
-         <GraphTraversal />
-        
-         <DivideAndConquer />
-       
-         <Recursion />
-       
-         <DynamicProgramming />
-      
-         <GreedyAlgorithms />
-     
-         <Backtracking />
-      
-         <SlidingWindow />
-      
-         <TwoPointers />
-        
-         <Hashing />
-         <button className="d-block m-auto my-2" onClick={handleClickAlgorithmic}>
-            {showAlgorithmic ? 'Close ' : 'Open '} Algorithmic Patterns UseCases
-         </button>
-         {showAlgorithmic ? (
-            <div className="my-3">
-               <h3 className="bold mt-4">Algorithmic Patterns UseCases</h3>
-               <div className="explanation">
-                  <p>
-                     <b>Sorting Algorithms:</b> Bubble Sort, Insertion Sort, Merge Sort,
-                     Quick Sort, Heap Sort, Counting Sort, Radix Sort, Bucket Sort
-                  </p>
-                  <p>
-                     <b>Search Algorithms:</b> Linear Search, Binary Search, Depth-First
-                     Search, Breadth-First Search, Dijkstra’s, A* Search
-                  </p>
-                  <p>
-                     <b>Divide and Conquer:</b> Merge Sort, Quick Sort Greedy: Dijkstra’s,
-                     Kruskal’s Dynamic Programming: Memoization, Tabulation Backtracking:
-                     N-Queens, Sudoku Solver
-                  </p>
-               </div>
+         <section className="algorithmic-section">
+            <h2 className="pattern-title-algorithmic">Algorithmic Patterns</h2>
+            
+            <p className="explanation">
+               Algorithmic patterns are <b>reusable problem-solving approaches</b> that help 
+               optimize code efficiency and solve common computational challenges.
+            </p>
+            
+            <div className="explanation my-4">
+               <h3 className="bold">Interview-Ready Use Cases:</h3>
+               <p>
+                  <b>Graph Traversal:</b> DFS, BFS, Topological Sort, Shortest Path, Connected Components <em>(FE: 3/10, FS: 9/10)</em>
+               </p>
+               <p>
+                  <b>Divide and Conquer:</b> Merge Sort, Quick Sort, Binary Search, Maximum Subarray <em>(FE: 5/10, FS: 8/10)</em>
+               </p>
+               <p>
+                  <b>Recursion:</b> Tree Traversal, Factorial, Fibonacci, Tower of Hanoi <em>(FE: 6/10, FS: 8/10)</em>
+               </p>
+               <p>
+                  <b>Dynamic Programming:</b> Knapsack, LCS, Edit Distance, Coin Change, Fibonacci <em>(FE: 4/10, FS: 9/10)</em>
+               </p>
+               <p>
+                  <b>Greedy Algorithms:</b> Activity Selection, Huffman Coding, Dijkstra's, Intervals <em>(FE: 3/10, FS: 7/10)</em>
+               </p>
+               <p>
+                  <b>Backtracking:</b> N-Queens, Sudoku Solver, Permutations, Subset Generation <em>(FE: 2/10, FS: 6/10)</em>
+               </p>
+               <p>
+                  <b>Sliding Window:</b> Maximum Sum Subarray, Longest Substring, Anagram Detection <em>(FE: 8/10, FS: 9/10)</em>
+               </p>
+               <p>
+                  <b>Two Pointers:</b> Pair Sum, Remove Duplicates, Palindrome Check, Merge Arrays <em>(FE: 9/10, FS: 10/10)</em>
+               </p>
+               <p>
+                  <b>Hashing:</b> Frequency Count, LRU Cache, Anagram Groups, Two Sum <em>(FE: 10/10, FS: 10/10)</em>
+               </p>
             </div>
-         ) : (
-            <div className="my-2">Click button to show details</div>
-         )}
+            
+            <GraphTraversal className="pattern-card my-5 mx-1 p-3" />
+            <DivideAndConquer className="pattern-card my-5 mx-1 p-3" />
+            <Recursion className="pattern-card my-5 mx-1 p-3" />
+            <DynamicProgramming className="pattern-card my-5 mx-1 p-3" />
+            <GreedyAlgorithms className="pattern-card my-5 mx-1 p-3" />
+            <Backtracking className="pattern-card my-5 mx-1 p-3" />
+            <SlidingWindow className="pattern-card my-5 mx-1 p-3" />
+            <TwoPointers className="pattern-card my-5 mx-1 p-3" />
+            <Hashing className="pattern-card my-5 mx-1 p-3" />
+         </section>
       </>
    );
 }

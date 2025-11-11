@@ -1,72 +1,67 @@
 import { useState } from 'react';
 import '../../styles/design-patterns.css';
+import ComponentBased from './ComponentBased';
+import MVC from './MVC';
+import EventDriven from './EventDriven';
+import Microservices from './Microservices';
 
 function ArchitecturalPatterns() {
-   const [showArchitectural, setShowArchitectural] = useState(false);
+   const [activePattern, setActivePattern] = useState<string | null>(null);
 
-   const handleClickArchitect = () => {
-      setShowArchitectural((prevShowThis) => {
-         return !prevShowThis;
-      });
+   const patterns = [
+      { name: 'Component-Based', component: ComponentBased, importance: 'FE: 10/10, FS: 9/10' },
+      { name: 'MVC', component: MVC, importance: 'FE: 8/10, FS: 9/10' },
+      { name: 'Event-Driven', component: EventDriven, importance: 'FE: 9/10, FS: 9/10' },
+      { name: 'Microservices', component: Microservices, importance: 'FE: 5/10, FS: 10/10' }
+   ];
+
+   const togglePattern = (patternName: string) => {
+      setActivePattern(activePattern === patternName ? null : patternName);
    };
 
    return (
-      <>
-         <section className="architectural-section">
-            <h2>Architectural Patterns</h2>
-            <p className="explanation">
-               Architectural patterns define the overall structure of an application.{' '}
-               <br />
-               They <b>organize systems into layers, modules, or services </b>to improve
-               scalability, maintainability, and separation of concerns.
-            </p>
-            <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickArchitect}>
-               {showArchitectural ? 'Close ' : 'See '} Architectural Patterns
-            </button>
-            {showArchitectural ? (
-               <div className="my-3">
-                  <h3 className="bold mt-4">Architectural Patterns</h3>
-                  <div className="explanation">
-                     <p>
-                        <b>Component-Based:</b> UI built from reusable, encapsulated
-                        components. Core to React/Vue and scalable frontend architecture. <em>(FE: 10/10, FS: 9/10)</em>
-                     </p>
-                     <p>
-                        <b>Client-Server:</b> Clients request services from centralized
-                        servers. Fundamental to web and API-based systems. <em>(FE: 7/10, FS: 10/10)</em>
-                     </p>
-                     <p>
-                        <b>Microservices:</b> App split into independent services with
-                        APIs. Enables scalable, modular system design. <em>(FE: 5/10, FS: 10/10)</em>
-                     </p>
-                     <p>
-                        <b>Event-Driven:</b> Components communicate via events and
-                        listeners. Ideal for async workflows and reactive UIs. <em>(FE: 9/10, FS: 9/10)</em>
-                     </p>
-                     <p>
-                        <b>MVC (Model-View-Controller):</b> Separates data, UI, and logic.
-                        Useful for organizing full-stack applications. <em>(FE: 8/10, FS: 9/10)</em>
-                     </p>
-                     <p>
-                        <b>MVVM (Model-View-ViewModel):</b> ViewModel binds data to View
-                        for reactive updates. Mirrors Vue's reactive model. <em>(FE: 9/10, FS: 7/10)</em>
-                     </p>
-                     <p>
-                        <b>Layered Architecture:</b> Code organized into layers (UI,
-                        business, data). Helps structure backend-heavy systems. <em>(FE: 6/10, FS: 9/10)</em>
-                     </p>
-                     <p>
-                        <b>Hexagonal (Ports & Adapters):</b> Decouples core logic from
-                        external systems. Advanced pattern for clean architecture and
-                        testability. <em>(FE: 4/10, FS: 8/10)</em>
-                     </p>
-                  </div>
+      <section className="architectural-section">
+         <h3>Architectural Patterns</h3>
+         <p className="explanation">
+            Architectural patterns define the overall structure of an application.
+            They organize systems into layers, modules, or services to improve scalability and maintainability.
+         </p>
+         
+         <div className="patterns-grid">
+            {patterns.map(({ name, component: PatternComponent, importance }) => (
+               <div key={name} className="pattern-item">
+                  <button 
+                     className="btn btn-primary d-block mx-auto my-2"
+                     onClick={() => togglePattern(name)}
+                  >
+                     {name} ({importance})
+                  </button>
+                  
+                  {activePattern === name && (
+                     <div className="pattern-details">
+                        <PatternComponent />
+                        <button 
+                           className="btn btn-secondary d-block mx-auto mt-3"
+                           onClick={() => setActivePattern(null)}
+                        >
+                           Close {name}
+                        </button>
+                     </div>
+                  )}
                </div>
-            ) : (
-               <div className="my-2">Click button to show details</div>
-            )}
-         </section>
-      </>
+            ))}
+         </div>
+         
+         <div className="mt-4">
+            <h5>Other Important Patterns:</h5>
+            <div className="explanation">
+               <p><b>Client-Server:</b> Clients request services from centralized servers. <em>(FE: 7/10, FS: 10/10)</em></p>
+               <p><b>MVVM:</b> ViewModel binds data to View for reactive updates. <em>(FE: 9/10, FS: 7/10)</em></p>
+               <p><b>Layered Architecture:</b> Code organized into layers (UI, business, data). <em>(FE: 6/10, FS: 9/10)</em></p>
+               <p><b>Hexagonal:</b> Decouples core logic from external systems. <em>(FE: 4/10, FS: 8/10)</em></p>
+            </div>
+         </div>
+      </section>
    );
 }
 

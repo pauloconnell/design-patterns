@@ -32,17 +32,17 @@ function ArchitecturalPatterns() {
                <div key={name} className="pattern-item">
                   <button 
                      className="btn btn-primary d-block mx-auto my-2"
-                     onClick={() => togglePattern(name)}
+                     onClick={() => {togglePattern(name)}}
                   >
                      {name} ({importance})
                   </button>
                   
                   {activePattern === name && (
                      <div className="pattern-details">
-                        <PatternComponent />
+                        <PatternComponent className="pattern-card my-5 mx-1 p-3"/>
                         <button 
                            className="btn btn-secondary d-block mx-auto mt-3"
-                           onClick={() => setActivePattern(null)}
+                           onClick={() => {setActivePattern(null)}}
                         >
                            Close {name}
                         </button>

@@ -1,23 +1,55 @@
-import { useState } from 'react';
-import '../../styles/design-patterns.css';
+import React, { useState } from 'react';
+import type { CommonProps } from '@types';
 
-function MVC() {
-   const [showExample, setShowExample] = useState(false);
-   const [showDemo, setShowDemo] = useState(false);
+const MVC = ({ className, style }: CommonProps) => {
+   const [showThis, setShowThis] = useState(false);
+   const [demoResult, setDemoResult] = useState<string>('');
+
+   const handleClick = (): void => {
+      setShowThis((prevShowThis) => {
+         return !prevShowThis;
+      });
+   };
+
+   const runDemo = () => {
+      const result = `Model: User data stored and managed
+View: User list rendered with form
+Controller: Add/Delete actions coordinated
+MVC separation achieved!`;
+      setDemoResult(result);
+   };
 
    return (
-      <div className="architectural-pattern">
-         <h4>MVC (Model-View-Controller)</h4>
-         <p><strong>Importance:</strong> FE: 8/10, FS: 9/10</p>
-         <p>Separates data (Model), UI (View), and logic (Controller). Useful for organizing full-stack applications.</p>
-         
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowExample(!showExample)}>
-            {showExample ? 'Hide' : 'Show'} Code Example
+      <section className={className} style={style}>
+         <h1>MVC Architecture</h1>
+         <h2>Separation of Concerns</h2>
+         Separates data (Model), UI (View), and logic (Controller). Useful for organizing full-stack applications.
+         <br />
+         <button
+            className="btn btn-primary"
+            onClick={handleClick}
+         >
+            MVC Details:
          </button>
-         
-         {showExample && (
-            <div className="code-example">
-               <pre><code>{`// Model - Data and business logic
+         {showThis ? (
+            <div id="mvc">
+               <h3>MVC Design Pattern:</h3>
+               Separates application logic into three interconnected components for better organization.
+               <h4>Common Use Cases:</h4>
+               <ul>
+                  <li>Web application architecture</li>
+                  <li>Full-stack development</li>
+                  <li>Enterprise applications</li>
+               </ul>
+               <hr />
+               <div className="my-3">
+                  <h5 className="bold">Example: User Management System</h5>
+                  <b className="explanation">
+                     Model manages data, View handles presentation, Controller coordinates interactions.
+                  </b>
+                  <b>Model (Data Layer):</b>
+                  <pre className="text-start d-block">
+{`// Model - Data and business logic
 class UserModel {
   private users: { id: number; name: string; email: string }[] = [];
 
@@ -96,44 +128,38 @@ const UserController = () => {
     setUsers([...model.getUsers()]);
   };
 
-  const handleDeleteUser = (id: number) => {
-    model.deleteUser(id);
-    setUsers([...model.getUsers()]);
-  };
+  return <UserView users={users} onAddUser={handleAddUser} />;
+};`}</pre>
 
-  return (
-    <UserView 
-      users={users}
-      onAddUser={handleAddUser}
-      onDeleteUser={handleDeleteUser}
-    />
-  );
-};`}</code></pre>
-               <button className="btn btn-secondary" onClick={() => setShowExample(false)}>Close</button>
-            </div>
-         )}
+                  <b>Benefits:</b>
+                  <pre className="text-start d-block">
+{`// Clear separation of concerns
+// Model: Business logic and data
+// View: User interface
+// Controller: Coordinates between Model and View
 
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowDemo(!showDemo)}>
-            {showDemo ? 'Hide' : 'Show'} Demo
-         </button>
-         
-         {showDemo && (
-            <div className="demo-section">
-               <p><strong>MVC Demo:</strong> Model handles data, View displays UI, Controller manages interactions</p>
-               <div style={{border: '1px solid #ddd', padding: '1rem', margin: '1rem 0'}}>
-                  <h5>User Management (MVC Pattern)</h5>
-                  <p><em>Model:</em> Stores user data</p>
-                  <p><em>View:</em> Form and list display</p>
-                  <p><em>Controller:</em> Handles add/delete actions</p>
-                  <div style={{backgroundColor: '#f8f9fa', padding: '0.5rem', marginTop: '1rem'}}>
-                     <small>In a real app, this would be a fully functional user management system</small>
-                  </div>
+// Testable components
+// Maintainable codebase
+// Scalable architecture`}</pre>
+
+                  <button className="btn btn-secondary btn-sm my-2" onClick={runDemo}>
+                     Run Demo
+                  </button>
+                  {demoResult && (
+                     <div className="alert alert-info">
+                        <pre>{demoResult}</pre>
+                     </div>
+                  )}
+                  <br />
+                  time complexity: O(1) for MVC coordination
                </div>
-               <button className="btn btn-secondary" onClick={() => setShowDemo(false)}>Close Demo</button>
+               <br />
             </div>
+         ) : (
+            <div className="my-2">Click button to show details</div>
          )}
-      </div>
+      </section>
    );
-}
+};
 
 export default MVC;

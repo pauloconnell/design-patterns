@@ -1,23 +1,54 @@
-import { useState } from 'react';
-import '../../styles/design-patterns.css';
+import React, { useState } from 'react';
+import type { CommonProps } from '@types';
 
-function ComponentBased() {
-   const [showExample, setShowExample] = useState(false);
-   const [showDemo, setShowDemo] = useState(false);
+const ComponentBased = ({ className, style }: CommonProps) => {
+   const [showThis, setShowThis] = useState(false);
+   const [demoResult, setDemoResult] = useState<string>('');
+
+   const handleClick = (): void => {
+      setShowThis((prevShowThis) => {
+         return !prevShowThis;
+      });
+   };
+
+   const runDemo = () => {
+      const result = `Component rendered: <Button text="Edit Profile" variant="primary" />
+Component rendered: <Card title="User Profile">...</Card>
+Reusable components working together!`;
+      setDemoResult(result);
+   };
 
    return (
-      <div className="architectural-pattern">
-         <h4>Component-Based Architecture</h4>
-         <p><strong>Importance:</strong> FE: 10/10, FS: 9/10</p>
-         <p>UI built from reusable, encapsulated components. Core to React/Vue and scalable frontend architecture.</p>
-         
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowExample(!showExample)}>
-            {showExample ? 'Hide' : 'Show'} Code Example
+      <section className={className} style={style}>
+         <h1>Component-Based Architecture</h1>
+         <h2>Reusable UI Building Blocks</h2>
+         UI built from reusable, encapsulated components. Core to React/Vue and scalable frontend architecture.
+         <br />
+         <button
+            className="btn btn-primary"
+            onClick={handleClick}
+         >
+            Component-Based Details:
          </button>
-         
-         {showExample && (
-            <div className="code-example">
-               <pre><code>{`// Reusable Button Component
+         {showThis ? (
+            <div id="component-based">
+               <h3>Component-Based Architecture:</h3>
+               Builds applications from reusable, self-contained components with clear interfaces.
+               <h4>Common Use Cases:</h4>
+               <ul>
+                  <li>React/Vue component libraries</li>
+                  <li>Design systems</li>
+                  <li>Modular UI development</li>
+               </ul>
+               <hr />
+               <div className="my-3">
+                  <h5 className="bold">Example: Reusable React Components</h5>
+                  <b className="explanation">
+                     Components encapsulate logic and UI, promoting reusability and maintainability.
+                  </b>
+                  <b>Component Definition:</b>
+                  <pre className="text-start d-block">
+{`// Reusable Button Component
 interface ButtonProps {
   text: string;
   onClick: () => void;
@@ -63,36 +94,37 @@ const App = () => {
       <Button text="Logout" onClick={() => console.log('Logout')} variant="secondary" />
     </Card>
   );
-};`}</code></pre>
-               <button className="btn btn-secondary" onClick={() => setShowExample(false)}>Close</button>
-            </div>
-         )}
+};`}</pre>
 
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowDemo(!showDemo)}>
-            {showDemo ? 'Hide' : 'Show'} Demo
-         </button>
-         
-         {showDemo && (
-            <div className="demo-section">
-               <div className="card" style={{border: '1px solid #ddd', padding: '1rem', margin: '1rem 0'}}>
-                  <div className="card-header">
-                     <h3>User Profile</h3>
-                  </div>
-                  <div className="card-body">
-                     <p>Welcome back, John!</p>
-                     <button className="btn btn-primary me-2" onClick={() => alert('Edit Profile clicked!')}>
-                        Edit Profile
-                     </button>
-                     <button className="btn btn-secondary" onClick={() => alert('Logout clicked!')}>
-                        Logout
-                     </button>
-                  </div>
+                  <b>Usage Benefits:</b>
+                  <pre className="text-start d-block">
+{`// Reusable across the application
+<Button text="Save" onClick={handleSave} />
+<Button text="Cancel" onClick={handleCancel} variant="secondary" />
+
+// Composable and testable
+<Card title="Settings">
+  <Button text="Update Profile" onClick={updateProfile} />
+</Card>`}</pre>
+
+                  <button className="btn btn-secondary btn-sm my-2" onClick={runDemo}>
+                     Run Demo
+                  </button>
+                  {demoResult && (
+                     <div className="alert alert-info">
+                        <pre>{demoResult}</pre>
+                     </div>
+                  )}
+                  <br />
+                  time complexity: O(1) for component rendering
                </div>
-               <button className="btn btn-secondary" onClick={() => setShowDemo(false)}>Close Demo</button>
+               <br />
             </div>
+         ) : (
+            <div className="my-2">Click button to show details</div>
          )}
-      </div>
+      </section>
    );
-}
+};
 
 export default ComponentBased;

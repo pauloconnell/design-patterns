@@ -1,23 +1,56 @@
-import { useState } from 'react';
-import '../../styles/design-patterns.css';
+import React, { useState } from 'react';
+import type { CommonProps } from '@types';
 
-function Microservices() {
-   const [showExample, setShowExample] = useState(false);
-   const [showDemo, setShowDemo] = useState(false);
+const Microservices = ({ className, style }: CommonProps) => {
+   const [showThis, setShowThis] = useState(false);
+   const [demoResult, setDemoResult] = useState<string>('');
+
+   const handleClick = (): void => {
+      setShowThis((prevShowThis) => {
+         return !prevShowThis;
+      });
+   };
+
+   const runDemo = () => {
+      const result = `User Service: User data retrieved
+Order Service: Order created successfully
+Payment Service: Payment processed
+Notification Service: Email sent
+Microservices orchestration completed!`;
+      setDemoResult(result);
+   };
 
    return (
-      <div className="architectural-pattern">
-         <h4>Microservices Architecture</h4>
-         <p><strong>Importance:</strong> FE: 5/10, FS: 10/10</p>
-         <p>App split into independent services with APIs. Enables scalable, modular system design.</p>
-         
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowExample(!showExample)}>
-            {showExample ? 'Hide' : 'Show'} Code Example
+      <section className={className} style={style}>
+         <h1>Microservices Architecture</h1>
+         <h2>Distributed Services</h2>
+         App split into independent services with APIs. Enables scalable, modular system design.
+         <br />
+         <button
+            className="btn btn-primary"
+            onClick={handleClick}
+         >
+            Microservices Details:
          </button>
-         
-         {showExample && (
-            <div className="code-example">
-               <pre><code>{`// User Service API
+         {showThis ? (
+            <div id="microservices">
+               <h3>Microservices Architecture:</h3>
+               Decomposes applications into small, independent services that communicate via APIs.
+               <h4>Common Use Cases:</h4>
+               <ul>
+                  <li>Large-scale web applications</li>
+                  <li>Cloud-native systems</li>
+                  <li>Enterprise platforms</li>
+               </ul>
+               <hr />
+               <div className="my-3">
+                  <h5 className="bold">Example: E-commerce Platform</h5>
+                  <b className="explanation">
+                     Independent services handle specific business domains with clear API boundaries.
+                  </b>
+                  <b>Service Implementation:</b>
+                  <pre className="text-start d-block">
+{`// User Service API
 class UserService {
   private baseUrl = '/api/users';
 
@@ -96,93 +129,46 @@ class ECommerceOrchestrator {
   }
 }
 
-// React component using microservices
-const CheckoutComponent = () => {
-  const [orchestrator] = useState(new ECommerceOrchestrator());
-  const [loading, setLoading] = useState(false);
-
-  const handleCheckout = async () => {
-    setLoading(true);
-    const result = await orchestrator.completeOrder(
-      'user123',
-      [{ id: 1, name: 'Product A', price: 29.99 }],
-      { cardNumber: '****-****-****-1234' }
-    );
-    setLoading(false);
-    
-    if (result.success) {
-      alert('Order completed successfully!');
-    } else {
-      alert('Order failed: ' + result.error);
+// Service Orchestration
+class ECommerceOrchestrator {
+  async completeOrder(userId: string, items: any[]) {
+    try {
+      const user = await userService.getUser(userId);
+      const order = await orderService.createOrder({ userId, items });
+      const payment = await paymentService.processPayment(order);
+      return { success: true, order, payment };
+    } catch (error) {
+      return { success: false, error: error.message };
     }
-  };
+  }
+}`}</pre>
 
-  return (
-    <button onClick={handleCheckout} disabled={loading}>
-      {loading ? 'Processing...' : 'Complete Order'}
-    </button>
-  );
-};`}</code></pre>
-               <button className="btn btn-secondary" onClick={() => setShowExample(false)}>Close</button>
-            </div>
-         )}
+                  <b>Benefits:</b>
+                  <pre className="text-start d-block">
+{`// Independent deployment and scaling
+// Technology diversity per service
+// Fault isolation
+// Team autonomy
+// Easier maintenance and testing`}</pre>
 
-         <button className="btn btn-primary d-block mx-auto my-2" onClick={() => setShowDemo(!showDemo)}>
-            {showDemo ? 'Hide' : 'Show'} Demo
-         </button>
-         
-         {showDemo && (
-            <div className="demo-section">
-               <div style={{border: '1px solid #ddd', padding: '1rem', margin: '1rem 0'}}>
-                  <h5>Microservices Demo</h5>
-                  <p>E-commerce system with separate services:</p>
-                  
-                  <div className="row">
-                     <div className="col-md-4">
-                        <div className="card mb-2">
-                           <div className="card-body">
-                              <h6 className="card-title">👤 User Service</h6>
-                              <p className="card-text">Manages user data and authentication</p>
-                              <small className="text-muted">Port: 3001</small>
-                           </div>
-                        </div>
+                  <button className="btn btn-secondary btn-sm my-2" onClick={runDemo}>
+                     Run Demo
+                  </button>
+                  {demoResult && (
+                     <div className="alert alert-info">
+                        <pre>{demoResult}</pre>
                      </div>
-                     
-                     <div className="col-md-4">
-                        <div className="card mb-2">
-                           <div className="card-body">
-                              <h6 className="card-title">📦 Order Service</h6>
-                              <p className="card-text">Handles order creation and management</p>
-                              <small className="text-muted">Port: 3002</small>
-                           </div>
-                        </div>
-                     </div>
-                     
-                     <div className="col-md-4">
-                        <div className="card mb-2">
-                           <div className="card-body">
-                              <h6 className="card-title">💳 Payment Service</h6>
-                              <p className="card-text">Processes payments and transactions</p>
-                              <small className="text-muted">Port: 3003</small>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  
-                  <div className="mt-3">
-                     <button 
-                        className="btn btn-success"
-                        onClick={() => alert('Demo: Order would orchestrate calls to User → Order → Payment services')}
-                     >
-                        Simulate Complete Order
-                     </button>
-                  </div>
+                  )}
+                  <br />
+                  time complexity: O(n) where n is number of service calls
                </div>
-               <button className="btn btn-secondary" onClick={() => setShowDemo(false)}>Close Demo</button>
+               <br />
             </div>
+         ) : (
+            <div className="my-2">Click button to show details</div>
          )}
-      </div>
+      </section>
    );
-}
+};
 
 export default Microservices;

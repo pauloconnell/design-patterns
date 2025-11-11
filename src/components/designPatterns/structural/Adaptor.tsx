@@ -1,48 +1,22 @@
 import React, { useState } from 'react';
 import type { CommonProps } from '@types';
 
-// Legacy API response format
-type LegacyUser = {
-   id: number;
-   full_name: string;
-   is_active: number; // 1 or 0
-};
 
-// Modern format expected by your component
-type ModernUser = {
-   id: number;
-   name: string;
-   active: boolean;
-};
-
-// Adapter function to convert legacy format to modern format
-function adaptUser(legacy: LegacyUser): ModernUser {
-   return {
-      id: legacy.id,
-      name: legacy.full_name,
-      active: legacy.is_active === 1,
-   };
-}
 
 const AdapterExample = ({ className, style }: CommonProps) => {
    const [showThis, setShowThis] = useState(false);
-   const [user, setUser] = useState<ModernUser | null>(null);
+   const [demoResult, setDemoResult] = useState<string>('');
 
    const handleClick = (): void => {
       setShowThis((prevShowThis) => {
          console.log('handled ', !prevShowThis);
          return !prevShowThis;
       });
+   };
 
-      // Simulate legacy data
-      const legacyUser: LegacyUser = {
-         id: 101,
-         full_name: 'Jane Doe',
-         is_active: 1,
-      };
-
-      const adapted = adaptUser(legacyUser);
-      setUser(adapted);
+   const runDemo = () => {
+      const result = `Legacy: { id: 101, full_name: "Jane Doe", is_active: 1 }\nModern: { id: 101, name: "Jane Doe", active: true }`;
+      setDemoResult(result);
    };
 
    return (
@@ -77,23 +51,46 @@ const AdapterExample = ({ className, style }: CommonProps) => {
                      Converts legacy API format into the shape expected by modern
                      components.
                   </b>
+                  <b>Type Definitions:</b>
                   <pre className="text-start d-block">
-                     <code>
-                        {`function adaptUser(legacy: LegacyUser): ModernUser {
+{`// Legacy API response format
+type LegacyUser = {
+  id: number;
+  full_name: string;
+  is_active: number; // 1 or 0
+};
+
+// Modern format expected by your component
+type ModernUser = {
+  id: number;
+  name: string;
+  active: boolean;
+};`}</pre>
+
+                  <b>Adapter Function:</b>
+                  <pre className="text-start d-block">
+{`function adaptUser(legacy: LegacyUser): ModernUser {
   return {
-    // NOTE: adapt legacy data to modern format
     id: legacy.id,
     name: legacy.full_name,
     active: legacy.is_active === 1,
   };
-}`}
-                     </code>
-                  </pre>
-                  <br />
-                  <b>Adapted Output:</b>
-                  <code className="text-start d-block">
-                     {user ? JSON.stringify(user) : 'No user loaded'}
-                  </code>
+}`}</pre>
+
+                  <b>Usage:</b>
+                  <pre className="text-start d-block">
+{`const legacyData = { id: 101, full_name: "Jane Doe", is_active: 1 };
+const modernData = adaptUser(legacyData);
+console.log(modernData); // { id: 101, name: "Jane Doe", active: true }`}</pre>
+
+                  <button className="btn btn-secondary btn-sm my-2" onClick={runDemo}>
+                     Run Demo
+                  </button>
+                  {demoResult && (
+                     <div className="alert alert-info">
+                        <pre>{demoResult}</pre>
+                     </div>
+                  )}
                   <br />
                   time complexity: O(1)
                </div>

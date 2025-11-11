@@ -1,8 +1,15 @@
 import { useState } from 'react';
+import '../../styles/design-patterns.css';
 
 import Facade from './structural/Facade';
 import Adaptor from './structural/Adaptor';
+import Decorator from './structural/Decorator';
+import Composite from './structural/Composite';
+import Proxy from './structural/Proxy';
+import Flyweight from './structural/Flyweight';
 import Singleton from './creational/Singleton';
+import Builder from './creational/Builder';
+import Prototype from './creational/Prototype';
 
 function DesignPatterns() {
    // We would define props types if we wanted to: 1)build props ahead of time,  2) wrap or forward props 3) want type safety in logic or tests
@@ -43,7 +50,7 @@ function DesignPatterns() {
 
    return (
       <>
-         <section>
+         <section className="architectural-section">
             <h2>Architectural Patterns</h2>
             <p className="explanation">
                Architectural patterns define the overall structure of an application.{' '}
@@ -51,7 +58,7 @@ function DesignPatterns() {
                They <b>organize systems into layers, modules, or services </b>to improve
                scalability, maintainability, and separation of concerns.
             </p>
-            <button className="d-block m-auto mt-2" onClick={handleClickArchitect}>
+            <button className="btn btn-architectural text-white d-block m-auto mt-2" onClick={handleClickArchitect}>
                {showArchitectural ? 'Close ' : 'See '} Architectural Patterns
             </button>
             {showArchitectural ? (
@@ -98,8 +105,8 @@ function DesignPatterns() {
             )}
          </section>
          <hr />
-         <section>
-            <h2> Structural Patterns</h2>
+         <section className="structural-section">
+            <h2 className="pattern-title-structural"> Structural Patterns</h2>
 
             <div className="my-3">
                <p className="explanation">
@@ -108,7 +115,7 @@ function DesignPatterns() {
                   and make integration easier</b> by defining clear relationships between
                   parts of an application.
                </p>
-               <button className="d-block m-auto mt-2" onClick={handleClickStructural}>
+               <button className="btn btn-structural text-white d-block m-auto mt-2" onClick={handleClickStructural}>
                   {showStructural ? 'Close ' : 'See '} Structural Patterns
                </button>
                {showStructural ? (
@@ -121,7 +128,7 @@ function DesignPatterns() {
                         interface of one class into another interface that a client
                         expects.
                      </b>
-                     <Adaptor className="my-5 mx-1 p-1 border rounded" />
+                     <Adaptor className="pattern-card my-5 mx-1 p-3" />
 
                      <div className="my-3">
                         <h3 className="bold">Facade</h3>
@@ -133,8 +140,14 @@ function DesignPatterns() {
                            interface to the client.
                         </b>
 
-                        <Facade className="my-5 mx-1 p-1 border rounded" />
+                        <Facade className="pattern-card my-5 mx-1 p-3" />
                      </div>
+
+                     <Decorator className="pattern-card my-5 mx-1 p-3" />
+                     <Composite className="pattern-card my-5 mx-1 p-3" />
+                     <Proxy className="pattern-card my-5 mx-1 p-3" />
+                     <Flyweight className="pattern-card my-5 mx-1 p-3" />
+
                      <button
                         className="d-block m-auto my-2"
                         onClick={handleClickStructural}
@@ -151,8 +164,8 @@ function DesignPatterns() {
             </div>
          </section>
          <hr />
-         <section>
-            <h2> Creational Patterns</h2>
+         <section className="creational-section">
+            <h2 className="pattern-title-creational"> Creational Patterns</h2>
 
             <div className="my-3">
                <p className="explanation">
@@ -163,29 +176,31 @@ function DesignPatterns() {
                   configurations, or runtime decisions.
                </p>
 
-               <button className="d-block m-auto mT-2" onClick={handleClickCreational}>
+               <button className="btn btn-creational text-white d-block m-auto mt-2" onClick={handleClickCreational}>
                   {showCreational ? 'Close ' : 'Show '} Creational Patterns
                </button>
 
                {showCreational ? (
                   <div className="my-3">
                      <h3 className="bold">Singleton</h3>
-                     <Singleton className="my-5 mx-1 p-1 border rounded" />
+                     <Singleton className="pattern-card my-5 mx-1 p-3" />
+                     <Builder className="pattern-card my-5 mx-1 p-3" />
+                     <Prototype className="pattern-card my-5 mx-1 p-3" />
                   </div>
                ) : (
                   <div className="my-2">Click button to show details</div>
                )}
             </div>
          </section>
-         <section>
-            <h2>Behavioral Patterns</h2>
+         <section className="behavioral-section">
+            <h2 className="pattern-title-behavioral">Behavioral Patterns</h2>
             <p className="explanation">
                Behavioral patterns define <b>how objects interact and communicate</b> with each
                other. <br />
                They help manage control flow, encapsulate behavior, and promote
                flexibility in system design and user interactions.
             </p>
-            <button className="d-block m-auto mt-2" onClick={handleClickBehavioral}>
+            <button className="btn btn-behavioral text-white d-block m-auto mt-2" onClick={handleClickBehavioral}>
                {showBehavioral ? 'Close ' : 'See '} Behavioral Patterns
             </button>
             {showBehavioral ? (

@@ -186,7 +186,7 @@ function DesignPatterns() {
                flexibility in system design and user interactions.
             </p>
             <button className="d-block m-auto mt-2" onClick={handleClickBehavioral}>
-               See Behavioral Patterns
+               {showBehavioral ? 'Close ' : 'See '} Behavioral Patterns
             </button>
             {showBehavioral ? (
                <div className="my-3">

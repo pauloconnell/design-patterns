@@ -3,8 +3,9 @@ import viteLogo from '/vite.svg';
 import tsLogo from './assets/typescript-96.png';
 import './App.css';
 import { useState } from 'react';
-import AlgorithmicPatterns from './components/algorithmicPatterns/AlgorithmicPatterns';
+import ArchitecturalPatterns from './components/architectural/ArchitecturalPatterns';
 import DesignPatterns from './components/designPatterns/DesignPatterns';
+import AlgorithmicPatterns from './components/algorithmicPatterns/AlgorithmicPatterns';
 
 function App() {
    // We would define props types if we wanted to: 1)build props ahead of time,  2) wrap or forward props 3) want type safety in logic or tests
@@ -17,9 +18,15 @@ function App() {
    // and component would just be
    // < <BreadthFirstSearch {...mockProps} />
 
+   const [showArchitectural, setShowArchitectural] = useState(false);
    const [showDesign, setShowDesign] = useState(false);
    const [showAlgorithmic, setShowAlgorithmic] = useState(false);
 
+   const handleClickArchitectural = () => {
+      setShowArchitectural((prevShowThis) => {
+         return !prevShowThis;
+      });
+   };
    const handleClickDesign = () => {
       setShowDesign((prevShowThis) => {
          return !prevShowThis;
@@ -45,6 +52,30 @@ function App() {
             </a>
          </div>
 
+         <section>
+            <h2>Architectural Patterns</h2>
+            <div className="explanation">
+               Architectural patterns define the overall structure and organization of software systems.
+               <br />
+               They provide high-level blueprints for <b>system architecture, component interaction,
+               and scalable design</b> — essential for building robust, maintainable applications.
+            </div>
+
+            <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
+               {showArchitectural ? 'Close' : 'Open'} Architectural Patterns
+            </button>
+            {showArchitectural ? (
+               <div className="my-3">
+                  <ArchitecturalPatterns />
+                  <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
+                     Close Architectural Patterns
+                  </button>
+               </div>
+            ) : (
+               <div className="my-2">Click button to show details</div>
+            )}
+         </section>
+         <hr />
          <section>
             <h2>Design Patterns</h2>
             <div className="explanation">

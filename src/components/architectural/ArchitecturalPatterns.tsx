@@ -13,13 +13,25 @@ function ArchitecturalPatterns() {
          name: 'Component-Based',
          component: ComponentBased,
          importance: 'FE: 10/10, FS: 9/10',
+         explanation: 'UI built from reusable, encapsulated components. Core to React/Vue and scalable frontend architecture.'
       },
-      { name: 'MVC', component: MVC, importance: 'FE: 8/10, FS: 9/10' },
-      { name: 'Event-Driven', component: EventDriven, importance: 'FE: 9/10, FS: 9/10' },
+      { 
+         name: 'MVC', 
+         component: MVC, 
+         importance: 'FE: 8/10, FS: 9/10',
+         explanation: 'Separates data (Model), UI (View), and logic (Controller). Useful for organizing full-stack applications.'
+      },
+      { 
+         name: 'Event-Driven', 
+         component: EventDriven, 
+         importance: 'FE: 9/10, FS: 9/10',
+         explanation: 'Components communicate via events and listeners. Ideal for async workflows and reactive UIs.'
+      },
       {
          name: 'Microservices',
          component: Microservices,
          importance: 'FE: 5/10, FS: 10/10',
+         explanation: 'App split into independent services with APIs. Enables scalable, modular system design.'
       },
    ];
 
@@ -57,7 +69,7 @@ function ArchitecturalPatterns() {
          </div>
 
          <div className="patterns-grid">
-            {patterns.map(({ name, component: PatternComponent, importance }) => (
+            {patterns.map(({ name, component: PatternComponent, importance, explanation }) => (
                <div key={name} className="pattern-item">
                   <button
                      className="btn btn-primary d-block mx-auto my-2"
@@ -71,15 +83,11 @@ function ArchitecturalPatterns() {
                   {activePattern === name && (
                      <div className="pattern-details">
                         <section>
-                           <h2 className="pattern-title-behavioral">
-                              Behavioral Patterns
+                           <h2 className="pattern-title-architectural">
+                              {name} Architecture
                            </h2>
                            <p className="explanation">
-                              Behavioral patterns define{' '}
-                              <b>how objects interact and communicate</b> with each other.{' '}
-                              <br />
-                              They help manage control flow, encapsulate behavior, and
-                              promote flexibility in system design and user interactions.
+                              {explanation}
                            </p>
                            <PatternComponent className="pattern-card my-5 mx-1 p-3" />
                            <button

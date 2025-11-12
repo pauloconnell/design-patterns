@@ -82,23 +82,24 @@ function ArchitecturalPatterns() {
 
                   {activePattern === name && (
                      <div className="pattern-details">
-                        <section>
-                           <h2 className="pattern-title-architectural">
+                       
+                           {/* <h2 className="pattern-title-architectural">
                               {name} Architecture
                            </h2>
                            <p className="explanation">
                               {explanation}
-                           </p>
+                           </p> */}
                            <PatternComponent className="pattern-card my-5 mx-1 p-3" />
                            <button
                               className="btn btn-secondary d-block mx-auto mt-3"
                               onClick={() => {
                                  setActivePattern(null);
+                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                               }}
                            >
                               Close {name}
                            </button>
-                        </section>
+                       
                      </div>
                   )}
                </div>

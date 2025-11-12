@@ -10,6 +10,7 @@ function BehavioralPatterns() {
    const [showBehavioral, setShowBehavioral] = useState(false);
 
    const handleClickBehavioral = () => {
+       window.scrollTo({ top: 0, behavior: 'smooth' });
       setShowBehavioral((prevShowThis) => {
          return !prevShowThis;
       });

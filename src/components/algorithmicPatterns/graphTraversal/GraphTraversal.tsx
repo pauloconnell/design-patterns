@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import DepthFirstSearch from './DepthFirstSearch'; // don't need to type props as they are simple here, but if we did import type DepthFirstSearchProps
-
+import DepthFirstSearch from './DepthFirstSearch';
 import BreadthFirstSearch from './BreadthFirstSearch';
+import ShortestPath from './ShortestPath';
 
 function GraphTraversal() {
    // We would define props types if we wanted to: 1)build props ahead of time,  2) wrap or forward props 3) want type safety in logic or tests
@@ -47,6 +47,16 @@ function GraphTraversal() {
                <div>
                   <DepthFirstSearch className="my-5 mx-1 p-1 border rounded" />
                   <BreadthFirstSearch className="my-5 mx-1 p-1 border rounded" />
+                  <ShortestPath className="my-5 mx-1 p-1 border rounded" />
+                  
+                  <div className="mt-4">
+                     <h5>Other Graph Algorithms:</h5>
+                     <div className="explanation">
+                        <p><b>Topological Sort:</b> Orders nodes by dependencies, used in build systems and task scheduling. <em>(FE: 4/10, FS: 7/10)</em></p>
+                        <p><b>Connected Components:</b> Finds isolated groups in networks, useful for social graphs and clustering. <em>(FE: 3/10, FS: 6/10)</em></p>
+                        <p><b>Minimum Spanning Tree:</b> Finds cheapest way to connect all nodes, used in network design. <em>(FE: 2/10, FS: 5/10)</em></p>
+                     </div>
+                  </div>
                </div>
             ) : (
                <div className="my-2">Click button to show details</div>

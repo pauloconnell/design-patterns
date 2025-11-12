@@ -4,6 +4,7 @@ import Observer from './Observer';
 import Strategy from './Strategy';
 import Command from './Command';
 import State from './State';
+import PubSub from './PubSub';
 
 function BehavioralPatterns() {
    const [showBehavioral, setShowBehavioral] = useState(false);
@@ -30,6 +31,7 @@ function BehavioralPatterns() {
             <p><b>Strategy:</b> Algorithm selection, payment methods, sorting options <em>(FE: 8/10, FS: 8/10)</em></p>
             <p><b>Command:</b> Undo/redo, action queues, macro recording <em>(FE: 7/10, FS: 7/10)</em></p>
             <p><b>State:</b> UI state machines, workflow management, game states <em>(FE: 9/10, FS: 7/10)</em></p>
+            <p><b>Pub/Sub:</b> Decoupled messaging, event-driven systems, microservices <em>(FE: 9/10, FS: 10/10)</em></p>
          </div>
          <button className="btn btn-primary d-block m-auto mt-2" onClick={handleClickBehavioral}>
             {showBehavioral ? 'Close ' : 'See '} Behavioral Patterns
@@ -40,6 +42,7 @@ function BehavioralPatterns() {
                <Strategy className="pattern-card my-5 mx-1 p-3" />
                <Command className="pattern-card my-5 mx-1 p-3" />
                <State className="pattern-card my-5 mx-1 p-3" />
+               <PubSub className="pattern-card my-5 mx-1 p-3" />
                
                <div className="mt-4">
                   <h5>Other Behavioral Patterns:</h5>

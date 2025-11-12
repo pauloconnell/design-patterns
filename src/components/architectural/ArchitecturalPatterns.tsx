@@ -27,6 +27,14 @@ function ArchitecturalPatterns() {
             They organize systems into layers, modules, or services to improve scalability and maintainability.
          </p>
          
+         <div className="explanation my-4">
+            <h4 className="bold">Common Use Cases:</h4>
+            <p><b>Component-Based:</b> React/Vue apps, design systems, reusable UI libraries <em>(FE: 10/10, FS: 9/10)</em></p>
+            <p><b>MVC:</b> Web applications, full-stack development, separation of concerns <em>(FE: 8/10, FS: 9/10)</em></p>
+            <p><b>Event-Driven:</b> Real-time apps, reactive UIs, microservices communication <em>(FE: 9/10, FS: 9/10)</em></p>
+            <p><b>Microservices:</b> Scalable backends, distributed systems, cloud architecture <em>(FE: 5/10, FS: 10/10)</em></p>
+         </div>
+         
          <div className="patterns-grid">
             {patterns.map(({ name, component: PatternComponent, importance }) => (
                <div key={name} className="pattern-item">

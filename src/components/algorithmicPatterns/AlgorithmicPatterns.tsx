@@ -9,6 +9,7 @@ import GreedyAlgorithms from './greedyAlgorithms/GreedyAlgorithms';
 import SlidingWindow from './slidingWindow/SlidingWindow';
 import TwoPointers from './twoPointers/TwoPointers';
 import Hashing from './hashing/Hashing';
+import SortingAlgorithms from './sorting/SortingAlgorithms';
 
 function AlgorithmicPatterns() {
    return (
@@ -21,10 +22,13 @@ function AlgorithmicPatterns() {
             <div className="explanation my-4">
                <h3 className="bold">Interview-Ready Use Cases:</h3>
                <p>
-                  <b>Graph Traversal:</b> DFS, BFS, Topological Sort, Shortest Path, Connected Components <em>(FE: 3/10, FS: 9/10)</em>
+                  <b>Graph Traversal:</b> DFS, BFS, Shortest Path for navigation and tree structures <em>(FE: 6/10, FS: 9/10)</em>
                </p>
                <p>
-                  <b>Divide and Conquer:</b> Merge Sort, Quick Sort, Binary Search, Maximum Subarray <em>(FE: 5/10, FS: 8/10)</em>
+                  <b>Divide and Conquer:</b> Binary Search, Maximum Subarray, problem decomposition <em>(FE: 5/10, FS: 8/10)</em>
+               </p>
+               <p>
+                  <b>Sorting Algorithms:</b> Quick Sort, Merge Sort, comparison-based ordering <em>(FE: 6/10, FS: 8/10)</em>
                </p>
                <p>
                   <b>Recursion:</b> Tree Traversal, Factorial, Fibonacci, Tower of Hanoi <em>(FE: 6/10, FS: 8/10)</em>
@@ -50,6 +54,7 @@ function AlgorithmicPatterns() {
             </div>
             
             <GraphTraversal className="pattern-card my-5 mx-1 p-3" />
+            <SortingAlgorithms className="pattern-card my-5 mx-1 p-3" />
             <DivideAndConquer className="pattern-card my-5 mx-1 p-3" />
             <Recursion className="pattern-card my-5 mx-1 p-3" />
             <DynamicProgramming className="pattern-card my-5 mx-1 p-3" />
@@ -58,6 +63,16 @@ function AlgorithmicPatterns() {
             <SlidingWindow className="pattern-card my-5 mx-1 p-3" />
             <TwoPointers className="pattern-card my-5 mx-1 p-3" />
             <Hashing className="pattern-card my-5 mx-1 p-3" />
+            
+            <div className="mt-4">
+               <h5>Other Important Patterns:</h5>
+               <div className="explanation">
+                  <p><b>Union-Find:</b> Efficiently tracks connected components, used in network connectivity problems. <em>(FE: 2/10, FS: 5/10)</em></p>
+                  <p><b>Trie (Prefix Tree):</b> Efficient string searching and autocomplete functionality. <em>(FE: 5/10, FS: 7/10)</em></p>
+                  <p><b>Heap/Priority Queue:</b> Maintains sorted order for task scheduling and top-K problems. <em>(FE: 4/10, FS: 8/10)</em></p>
+                  <p><b>Bit Manipulation:</b> Efficient operations on binary data, used in optimization problems. <em>(FE: 3/10, FS: 6/10)</em></p>
+               </div>
+            </div>
          </section>
       </>
    );

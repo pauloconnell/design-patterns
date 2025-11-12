@@ -51,32 +51,7 @@ function App() {
                <img src={tsLogo} className="logo TS" alt="TS logo" />
             </a>
          </div>
-
-         <section>
-            <h2>Architectural Patterns</h2>
-            <div className="explanation">
-               Architectural patterns define the overall structure and organization of software systems.
-               <br />
-               They provide high-level blueprints for <b>system architecture, component interaction,
-               and scalable design</b> — essential for building robust, maintainable applications.
-            </div>
-
-            <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
-               {showArchitectural ? 'Close' : 'Open'} Architectural Patterns
-            </button>
-            {showArchitectural ? (
-               <div className="my-3">
-                  <ArchitecturalPatterns />
-                  <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
-                     Close Architectural Patterns
-                  </button>
-               </div>
-            ) : (
-               <div className="my-2">Click button to show details</div>
-            )}
-         </section>
-         <hr />
-         <section>
+     <section>
             <h2>Design Patterns</h2>
             <div className="explanation">
                Design patterns are proven solutions to common software design problems.{' '}
@@ -105,6 +80,34 @@ function App() {
             )}
          </section>
          <hr />
+         <section>
+            <h2>Architectural Patterns</h2>
+            <div className="explanation">
+               Architectural patterns define the overall structure and organization of software systems.
+               <br />
+               They provide high-level blueprints for <b>system architecture, component interaction,
+               and scalable design</b> — essential for building robust, maintainable applications.
+               <br />
+               Common use cases include <b>React component hierarchies, microservices design, 
+               MVC web applications, and event-driven systems</b> for modern development.
+            </div>
+
+            <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
+               {showArchitectural ? 'Close' : 'Open'} Architectural Patterns
+            </button>
+            {showArchitectural ? (
+               <div className="my-3">
+                  <ArchitecturalPatterns />
+                  <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
+                     Close Architectural Patterns
+                  </button>
+               </div>
+            ) : (
+               <div className="my-2">Click button to show details</div>
+            )}
+         </section>
+         <hr />
+    
          <section>
             <div className="my-3">
                <h2>Algorithmic Patterns</h2>

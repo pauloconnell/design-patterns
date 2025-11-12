@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../../styles/design-patterns.css';
 import Adaptor from './Adaptor';
 import Facade from './Facade';
@@ -9,16 +9,21 @@ import Flyweight from './Flyweight';
 
 function StructuralPatterns() {
    const [showStructural, setShowStructural] = useState(false);
+   const [wasOpened, setWasOpened] = useState(false);
    const sectionRef = useRef<HTMLElement>(null);
 
    const handleClickStructural = () => {
       setShowStructural((prevShowThis) => {
-         if (prevShowThis) {
-            sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-         }
+         if (!prevShowThis) setWasOpened(true);
          return !prevShowThis;
       });
    };
+
+   useEffect(() => {
+      if (!showStructural && wasOpened ) {
+         sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+   }, [showStructural, wasOpened]);
 
    return (
       <section className="structural-section" ref={sectionRef}>

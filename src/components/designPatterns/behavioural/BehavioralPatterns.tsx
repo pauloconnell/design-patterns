@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../../../styles/design-patterns.css';
 import Observer from './Observer';
 import Strategy from './Strategy';
@@ -8,16 +8,25 @@ import PubSub from './PubSub';
 
 function BehavioralPatterns() {
    const [showBehavioral, setShowBehavioral] = useState(false);
-
+   const [wasOpened, setWasOpened] = useState(false);
+   const sectionRef = useRef<HTMLElement>(null);
    const handleClickBehavioral = () => {
-       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if(!wasOpened) setWasOpened(true);
       setShowBehavioral((prevShowThis) => {
          return !prevShowThis;
       });
    };
 
+
+   useEffect(() => {
+      if (!showBehavioral && wasOpened) {
+        
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      } 
+   }, [showBehavioral, wasOpened]);
+
    return (
-      <section className="behavioral-section">
+      <section className="behavioral-section" ref={sectionRef}>
          <h2 className="pattern-title-behavioral">Behavioral Patterns</h2>
          <p className="explanation">
             Behavioral patterns define <b>how objects interact and communicate</b> with each

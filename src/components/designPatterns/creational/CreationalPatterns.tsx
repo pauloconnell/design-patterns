@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../../../styles/design-patterns.css';
 import Singleton from './Singleton';
 import Builder from './Builder';
@@ -7,16 +7,19 @@ import Prototype from './Prototype';
 
 function CreationalPatterns() {
    const [showCreational, setShowCreational] = useState(false);
+   const [wasOpened, setWasOpened] = useState(false);
    const sectionRef = useRef<HTMLElement>(null);
 
    const handleClickCreational = () => {
-      setShowCreational((prevShowThis) => {
-         if (prevShowThis) {
-            sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
-         }
-         return !prevShowThis;
-      });
+      if (!wasOpened) setWasOpened(true);
+      setShowCreational((prevShowThis) => !prevShowThis);
    };
+
+   useEffect(() => {
+      if (!showCreational && wasOpened) {
+         sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }
+   }, [showCreational, wasOpened]);
 
    return (
       <section className="creational-section" ref={sectionRef}>

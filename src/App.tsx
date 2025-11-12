@@ -47,11 +47,11 @@ function App() {
             <a href="https://react.dev" target="_blank">
                <img src={reactLogo} className="logo react" alt="React logo" />
             </a>
-                    <a href="https://www.typescriptlang.org/" target="_blank">
+            <a href="https://www.typescriptlang.org/" target="_blank">
                <img src={tsLogo} className="logo TS" alt="TS logo" />
             </a>
          </div>
-     <section>
+         <section>
             <h2>Design Patterns</h2>
             <div className="explanation">
                Design patterns are proven solutions to common software design problems.{' '}
@@ -60,9 +60,9 @@ function App() {
                offering reusable strategies for structuring logic, behavior, and
                architecture.
                <br />
-               Patterns are typically grouped into categories like <b> creational, structural,
-               behavioral, and architectural </b> — each addressing different aspects of
-               software design.
+               Patterns are typically grouped into categories like{' '}
+               <b> creational, structural, behavioral, and architectural </b> — each
+               addressing different aspects of software design.
             </div>
 
             <button className="d-block m-auto mt-2" onClick={handleClickDesign}>
@@ -79,17 +79,24 @@ function App() {
                <div className="my-2">Click button to show details</div>
             )}
          </section>
+
          <hr />
          <section>
             <h2>Architectural Patterns</h2>
             <div className="explanation">
-               Architectural patterns define the overall structure and organization of software systems.
+               Architectural patterns define the overall structure and organization of
+               software systems.
                <br />
-               They provide high-level blueprints for <b>system architecture, component interaction,
-               and scalable design</b> — essential for building robust, maintainable applications.
+               They provide high-level blueprints for{' '}
+               <b>system architecture, component interaction, and scalable design</b> —
+               essential for building robust, maintainable applications.
                <br />
-               Common use cases include <b>React component hierarchies, microservices design, 
-               MVC web applications, and event-driven systems</b> for modern development.
+               Common use cases include{' '}
+               <b>
+                  React component hierarchies, microservices design, MVC web applications,
+                  and event-driven systems
+               </b>{' '}
+               for modern development.
             </div>
 
             <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
@@ -98,7 +105,10 @@ function App() {
             {showArchitectural ? (
                <div className="my-3">
                   <ArchitecturalPatterns />
-                  <button className="d-block m-auto mt-2" onClick={handleClickArchitectural}>
+                  <button
+                     className="d-block m-auto mt-2"
+                     onClick={handleClickArchitectural}
+                  >
                      Close Architectural Patterns
                   </button>
                </div>
@@ -107,7 +117,7 @@ function App() {
             )}
          </section>
          <hr />
-    
+
          <section>
             <div className="my-3">
                <h2>Algorithmic Patterns</h2>
@@ -116,33 +126,40 @@ function App() {
                   <p className="explanation">
                      Algorithmic patterns are common strategies used to solve
                      computational problems efficiently. <br />
-                     They help identify optimal approaches for <b>recursion, traversal,
-                     dynamic programming, and other problem-solving techniques</b> —
-                     especially useful in coding interviews and platforms like LeetCode.
+                     They help identify optimal approaches for{' '}
+                     <b>
+                        recursion, traversal, dynamic programming, and other
+                        problem-solving techniques
+                     </b>{' '}
+                     — especially useful in coding interviews and platforms like LeetCode.
                   </p>
                </div>
 
                <button className="d-block m-auto mt-2" onClick={handleClickAlgo}>
-                 { showAlgorithmic ? 'Close ' : 'See ' }Algorithmic Patterns
+                  {showAlgorithmic ? 'Close ' : 'See '}Algorithmic Patterns
                </button>
                {showAlgorithmic ? (
                   <div className="my-3">
                      <AlgorithmicPatterns />
 
                      <button className="d-block m-auto my-2" onClick={handleClickAlgo}>
-                       Close Algorithmic Patterns
+                        Close Algorithmic Patterns
                      </button>
                   </div>
                ) : (
                   <div className="my-2">Click button to show details</div>
                )}
             </div>
-            <div className="my-3">
-               <h5 className="bold"></h5>
-            </div>
          </section>
+
          <footer>
-            <a target="_blank" href="https://icons8.com/icon/Xf1sHBmY73hA/typescript">TypeScript</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+            <a target="_blank" href="https://icons8.com/icon/Xf1sHBmY73hA/typescript">
+               TypeScript
+            </a>{' '}
+            icon by{' '}
+            <a target="_blank" href="https://icons8.com">
+               Icons8
+            </a>
          </footer>
       </>
    );

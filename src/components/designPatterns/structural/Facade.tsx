@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import type { CommonProps } from '@types';
 
 // Subsystems: pretend these are complex utilities

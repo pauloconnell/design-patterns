@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import type { CommonProps } from '@types';
 
 const SortingAlgorithms = ({ className, style }: CommonProps) => {

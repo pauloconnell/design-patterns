@@ -72,6 +72,8 @@ function ArchitecturalPatterns() {
             {patterns.map(({ name, component: PatternComponent, importance, explanation }) => (
                <div key={name} className="pattern-item">
                   <button
+                     title={explanation}
+                     type="button"
                      className="btn btn-primary d-block mx-auto my-2"
                      onClick={() => {
                         togglePattern(name);

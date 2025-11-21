@@ -2,8 +2,10 @@ import { useState } from 'react';
 import DepthFirstSearch from './DepthFirstSearch';
 import BreadthFirstSearch from './BreadthFirstSearch';
 import ShortestPath from './ShortestPath';
+import type { CommonProps } from '@types';
 
-function GraphTraversal() {
+
+function GraphTraversal ({ className, style }: CommonProps)  {
    // We would define props types if we wanted to: 1)build props ahead of time,  2) wrap or forward props 3) want type safety in logic or tests
 
    // do this
@@ -36,7 +38,7 @@ function GraphTraversal() {
 
    return (
       <>
-         <section>
+         <section className={className} style={style}>
             <h1 className="bold">Graph Traversal</h1>
             <p className="explanation">
                Graph traversal is a process of <b>visiting each node in a graph</b> data

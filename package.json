@@ -1,5 +1,6 @@
 {
    "name": "design-patterns",
+   "homepage": "https://paul-oconnell.github.io/design-patterns",
    "private": true,
    "version": "0.0.0",
    "type": "module",
